@@ -38,6 +38,19 @@ For hosts using the personal Agents directory, pass `--destination ~/.agents/ski
 
 See the [setup guide](skills/lceda-hardware/references/setup.md) for connection and troubleshooting steps.
 
+## References
+
+| Official reference | How this skill uses it |
+| --- | --- |
+| [JLCEDA Pro CLI guide](https://prodocs.lceda.cn/cn/api/guide/cli.html) | Native MCP startup, session discovery, and editor invocation. |
+| [JLCEDA Pro extension API guide](https://prodocs.lceda.cn/cn/api/guide/) | Discover editor commands and verify their schemas before reading or editing a design. |
+| [ngspice documentation and manuals](https://ngspice.sourceforge.io/docs.html) | SPICE deck syntax, operating point, AC and transient analysis, and batch execution. |
+| [Codex MCP configuration](https://developers.openai.com/codex/mcp) | Register the native JLCEDA server as a local stdio MCP. |
+| [Conda environment management](https://docs.conda.io/projects/conda/en/stable/user-guide/tasks/manage-environments.html) and [Miniforge](https://github.com/conda-forge/miniforge) | Prepare an isolated simulation environment and install conda locally when needed. |
+| [NumPy](https://github.com/numpy/numpy), [Shapely](https://github.com/shapely/shapely), and [Matplotlib](https://matplotlib.org/stable/users/index.html) | Optional numerical analysis, geometry checks, and plotting. |
+
+For supported versions and tested configurations, see the [source and compatibility notes](skills/lceda-hardware/references/sources.md).
+
 ## Test
 
 ```sh
