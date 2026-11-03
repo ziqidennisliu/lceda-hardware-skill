@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "kind": "agent_tool_catalog_not_auto_registered_mcp",
+  "tools": [
+    {"id":"setup","entry":"scripts/bootstrap.py","runtime":"python>=3.10","required_args":["--project"],"optional_args":["--eda-bin","--apply","--register-codex","--with-simulation","--install-conda"],"mutates":"Only with --apply: local project runtime/config; never EDA design"},
+    {"id":"skill-install","entry":"scripts/install_skill.py","runtime":"python>=3.10","optional_args":["--destination","--apply"],"mutates":"Copy skill with --apply; conflicting target preserved"},
+    {"id":"pcb-snapshot","entry":"scripts/eda_snapshot.py","runtime":"python>=3.10 and native JLCEDA CLI","required_args":["--session","--project-uuid","--pcb-uuid","--output"],"optional_args":["--eda-bin"],"output":"V4 snapshot JSON including native source, components/pads, actual copper","mutates":"New local JSON only; read-only EDA"},
+    {"id":"pcb-view","entry":"scripts/pcb_view.py","runtime":"python>=3.10 standard library","required_args":["snapshot","--output-dir"],"output":["index.html","layer-ID.svg","stackup.svg","view-report.json"],"mutates":"New local review directory only"},
+    {"id":"spice-run","entry":"scripts/run_spice.py","runtime":"python>=3.10 and ngspice","required_args":["deck","--ngspice","--output-dir"],"optional_args":["--timeout"],"output":["ngspice.log","process.log","run-result.json"],"mutates":"Local simulation outputs; review deck .control operations first"},
+    {"id":"pin-audit","entry":"scripts/audit_connections.py","runtime":"python>=3.10 standard library","required_args":["expected","actual"],"optional_args":["--output"],"input_schema":"assets/connection-manifest.example.json","mutates":"Optional report only"},
+    {"id":"eda-native","provider":"jlceda MCP","discovery":"help -> doctor/session.list -> help/doc.api -> call","capabilities":["library search","schematic edit/export","PCB edit/export","ERC/DRC","native render"],"mutates":"Depends on command; bind target and authorization before edits"},
+    {"id":"native-copper-rebuild","provider":"JLCEDA official API if supported, else native UI","discovery":"Current doc.api or native copper manager","mutates":"Yes; require task authorization and actual POURED readback"}
+  ]
+}

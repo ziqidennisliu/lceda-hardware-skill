@@ -1,0 +1,6 @@
+interface:
+  display_name: "LCEDA Hardware Assistant"
+  short_description: "Connect, design, simulate, and review JLCEDA Pro hardware"
+  default_prompt: "Use $lceda-hardware to connect to the installed JLCEDA Pro application, prepare required tools, inspect my project, and advance the authorized design stage, asking only about unresolved design decisions."
+policy:
+  allow_implicit_invocation: true

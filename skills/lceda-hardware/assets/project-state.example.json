@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "project_path": null,
+  "stage": 0,
+  "mode": "read_only",
+  "authorization": {"scope": null, "source": null, "save_allowed": false},
+  "target": {"session": null, "project_uuid": null, "document_uuid": null, "editor_version": null},
+  "baseline": {"path": null, "sha256": null, "captured_at": null},
+  "decisions": [],
+  "pending_decisions": [],
+  "protected_objects": [],
+  "last_completed_batch": null,
+  "inflight_operation": null,
+  "evidence": [],
+  "blockers": [],
+  "next_action": null,
+  "fabrication_approved": false
+}
